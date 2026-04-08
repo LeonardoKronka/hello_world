@@ -19,16 +19,30 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue[900],
           foregroundColor: Colors.white,
         ),
-        body: const Center(
-          child: CartaoBanco(), // Chamando o widget do cartão bancário
+        // SingleChildScrollView para permitir rolagem caso o conteúdo ultrapasse a tela
+        body: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Column(
+                children: [
+                  const CartaoBancoFrente(),
+
+                  const SizedBox(height: 30), // Espaço entre os cartões
+
+                  const CartaoBancoVerso(),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
   }
 }
 
-class CartaoBanco extends StatelessWidget {
-  const CartaoBanco({super.key});
+class CartaoBancoFrente extends StatelessWidget {
+  const CartaoBancoFrente({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +63,8 @@ class CartaoBanco extends StatelessWidget {
       ),
       child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween, // espalha os itens na vertical
+        mainAxisAlignment:
+            MainAxisAlignment.spaceBetween, // espalha os itens na vertical
         children: [
           //LOGO DO BANCO
           Row(
@@ -61,7 +76,7 @@ class CartaoBanco extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
@@ -73,7 +88,7 @@ class CartaoBanco extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontSize: 22,
-              letterSpacing: 2.5 // Dá um espaço extra entre os números
+              letterSpacing: 2.5, // Dá um espaço extra entre os números
             ),
           ),
 
@@ -88,13 +103,13 @@ class CartaoBanco extends StatelessWidget {
                 children: [
                   Text(
                     'LEONARDO',
-                    style: TextStyle(color: Colors.white, fontSize:16),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   SizedBox(height: 4),
                   Text(
                     'Tel: (11) 98765-4321',
                     style: TextStyle(color: Colors.white60, fontSize: 12),
-                  )
+                  ),
                 ],
               ),
 
@@ -104,18 +119,26 @@ class CartaoBanco extends StatelessWidget {
                 children: [
                   Text(
                     'Ag: 0001',
-                    style: TextStyle(color: Colors.white60, fontSize: 12)
+                    style: TextStyle(color: Colors.white60, fontSize: 12),
                   ),
                   Text(
                     'Cc: 12345-6',
-                    style: TextStyle(color: Colors.white60, fontSize: 12)
+                    style: TextStyle(color: Colors.white60, fontSize: 12),
                   ),
-                ]
-              )
-            ]
-          )
+                ],
+              ),
+            ],
+          ),
         ],
-      )
+      ),
     );
   }
+}
+
+// --- WIDGET DO VERSO DO CARTAO ---
+class CartaoBancoVerso extends StateLessWidget {
+  const CartaoBancoVerso({super.key});
+
+  @override
+  Widget build(BuildContext context){}
 }
