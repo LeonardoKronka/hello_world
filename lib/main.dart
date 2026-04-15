@@ -165,10 +165,8 @@ class CartaoBanco extends StatelessWidget {
                   ),
                 ],
               ),
-
             ],
           ),
-
         ],
       ),
     );
