@@ -36,6 +36,7 @@ class CarteiraDigital extends StatelessWidget {
             nome: "Leonardo Kronka Rodrigues",
             validade: "12/30",
             bandeira: "assets/images/mastercard.png",
+            logo: "assets/images/logo_sesi.jpg",
           ),
 
           SizedBox(height: 20),
@@ -47,17 +48,19 @@ class CarteiraDigital extends StatelessWidget {
             nome: "Leonardo Kronka Rodrigues",
             validade: "03/32",
             bandeira: "assets/images/mastercard.png",
+            logo: "assets/images/logo_inter.png",
           ),
 
           SizedBox(height: 20),
 
           CartaoBanco(
-            corCartao: Colors.deepPurple,
+            corCartao: const Color.fromARGB(255, 116, 72, 192),
             banco: "Nubank",
             numero: "1234 5678 9012 3456",
             nome: "Leonardo Kronka Rodrigues",
             validade: "07/31",
             bandeira: "assets/images/mastercard.png",
+            logo: "assets/images/logo_nubank.png",
           ),
         ],
       ),
@@ -72,6 +75,7 @@ class CartaoBanco extends StatelessWidget {
   final String nome;
   final String validade;
   final String bandeira;
+  final String logo;
 
   const CartaoBanco({
     super.key,
@@ -81,6 +85,7 @@ class CartaoBanco extends StatelessWidget {
     required this.nome,
     required this.validade,
     required this.bandeira,
+    required this.logo,
   });
 
   @override
@@ -102,6 +107,14 @@ class CartaoBanco extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Image.asset(
+                logo,
+                width: 40,
+                height: 40,
+              ),
+
+              SizedBox(width: 10),
+
               Text(
                 banco,
                 style: TextStyle(
@@ -111,9 +124,9 @@ class CartaoBanco extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(width: 160),
+              SizedBox(width: 110),
 
-              Icon(Icons.contactless, color: Colors.white),
+              Icon(Icons.contactless, color: Colors.white), //aproximação
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
