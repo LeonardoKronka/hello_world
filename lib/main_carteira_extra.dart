@@ -35,6 +35,7 @@ class CarteiraDigital extends StatelessWidget {
             numero: "1234 5678 9012 3456",
             nome: "Leonardo Kronka Rodrigues",
             validade: "12/30",
+            bandeira: "assets/images/mastercard.png",
           ),
 
           SizedBox(height: 20),
@@ -45,6 +46,7 @@ class CarteiraDigital extends StatelessWidget {
             numero: "1234 5678 9012 3456",
             nome: "Leonardo Kronka Rodrigues",
             validade: "03/32",
+            bandeira: "assets/images/mastercard.png",
           ),
 
           SizedBox(height: 20),
@@ -55,6 +57,7 @@ class CarteiraDigital extends StatelessWidget {
             numero: "1234 5678 9012 3456",
             nome: "Leonardo Kronka Rodrigues",
             validade: "07/31",
+            bandeira: "assets/images/mastercard.png",
           ),
         ],
       ),
@@ -68,6 +71,7 @@ class CartaoBanco extends StatelessWidget {
   final String numero;
   final String nome;
   final String validade;
+  final String bandeira;
 
   const CartaoBanco({
     super.key,
@@ -76,6 +80,7 @@ class CartaoBanco extends StatelessWidget {
     required this.numero,
     required this.nome,
     required this.validade,
+    required this.bandeira,
   });
 
   @override
@@ -95,7 +100,7 @@ class CartaoBanco extends StatelessWidget {
 
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
                 banco,
@@ -106,7 +111,20 @@ class CartaoBanco extends StatelessWidget {
                 ),
               ),
 
+              SizedBox(width: 160),
+
               Icon(Icons.contactless, color: Colors.white),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Image.asset(
+                    bandeira,
+                    width: 40,
+                    height: 40,
+                  )
+                ],
+              ),
             ],
           ),
 
@@ -138,6 +156,9 @@ class CartaoBanco extends StatelessWidget {
                   ),
                 ],
               ),
+
+              
+
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
