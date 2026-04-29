@@ -62,6 +62,18 @@ class CarteiraDigital extends StatelessWidget {
             bandeira: "assets/images/mastercard.png",
             logo: "assets/images/logo_nubank.png",
           ),
+
+          SizedBox(height: 20),
+
+          CartaoBanco(
+            corCartao: const Color.fromARGB(255, 255, 149, 0),
+            banco: "Itaú",
+            numero: "1234 5678 9012 3456",
+            nome: "Leonardo Kronka Rodrigues",
+            validade: "03/30",
+            bandeira: "assets/images/mastercard.png",
+            logo: "assets/images/logo_itau.svg",
+          ),
         ],
       ),
     );
