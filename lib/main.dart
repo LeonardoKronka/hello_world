@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MeuApp());
+void main() {
+  runApp(const MeuApp());
+}
 
 class MeuApp extends StatelessWidget {
   const MeuApp({super.key});
@@ -10,34 +12,27 @@ class MeuApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Drawer'),
-          backgroundColor: Colors.purple,
-          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
-          iconTheme: IconThemeData(color: Colors.white),
-        ),
-        body: const Center(child: Text('Abra o menu ↖️')),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              GestureDetector(
-                onTap: () => print('Clicou em: Loja'), 
-                child: const DrawerHeader(
-                  decoration: BoxDecoration(color: Colors.purple),
-                  child: Text('Loja🛒', style: TextStyle(color: Colors.white, fontSize: 24)),
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text('Inicio'),
-                onTap: () {
-                  print('Clicou em: Início');
-                  Navigator.pop(context);
-                },
-              ),
-            ],
+          title: const Text(
+            'Minha Loja',
+            style: TextStyle(color: Colors.white),
           ),
+          backgroundColor: Colors.purple,
+          actions: [
+            PopupMenuButton<String>(
+              iconColor: Colors.white,
+              onSelected: (opcao) => print('Clicou em: $opcao'),
+              itemBuilder: (context) => [
+                const PopupMenuItem(value: 'Editar', child: Text('Editar')),
+                const PopupMenuItem(value: 'Excluir', child: Text('Excluir')),
+                const PopupMenuItem(
+                  value: 'Compartilhar',
+                  child: Text('Compartilhar'),
+                ),
+              ],
+            ),
+          ],
         ),
+        body: const Center(child: Text('Toque nos 3 pontinhos (⋮) no topo!')),
       ),
     );
   }
