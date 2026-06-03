@@ -23,13 +23,12 @@ class _MeuAppState extends State<MeuApp> {
               setState(() => _loading = true);
               Future.delayed(const Duration(seconds: 3), () => setState(() => _loading = false));
             },
-            //
-        //
-        //
-        //
-        //
-        //
-        //
+            child: _loading 
+                ? const Row(mainAxisSize: MainAxisSize.min, children: [
+                  SizedBox(width: 18, height: 18, child: CircularProgressIndicator(color: Colors.purple, strokeWidth: 2)),
+                  SizedBox(width: 8),
+                  Text('Salvando...', style: TextStyle(color: Colors.purple))
+                ])
           ),
         ),
       ),
