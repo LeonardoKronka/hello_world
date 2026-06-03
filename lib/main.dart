@@ -2,32 +2,34 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MeuApp());
 
-class MeuApp extends StatelessWidget {
+class MeuApp extends StatefulWidget {
   const MeuApp({super.key});
+  @override
+  State<MeuApp> createState() => _MeuAppState();
+}
 
-  @override 
+class _MeuAppState extends State<MeuApp> {
+  bool _loading = false;
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Builder(
-        builder: (context) => Scaffold(
-          appBar: AppBar(title: const Text('AlertDialog'), titleTextStyle: const TextStyle(color: Colors.white), backgroundColor: Colors.purple),
-          body: Center(
-            child: ElevatedButton(
-              child: const Text('Abrir'),
-              onPressed: () => showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text('Aviso'),
-                  content: const Text('Item adicionado!'),
-                  actions: [
-                    TextButton(
-                      onPressed: () { Navigator.pop(context); },
-                      child: const Text('OK'),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Carregamento'), backgroundColor: Colors.purple, titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20)),
+        body: Center(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.purple, foregroundColor: Colors.white),
+            onPressed: _loading ? null : () {
+              setState(() => _loading = true);
+              Future.delayed(const Duration(seconds: 3), () => setState(() => _loading = false));
+            },
+            //
+        //
+        //
+        //
+        //
+        //
+        //
           ),
         ),
       ),
