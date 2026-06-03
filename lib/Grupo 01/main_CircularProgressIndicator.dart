@@ -29,6 +29,7 @@ class _MeuAppState extends State<MeuApp> {
                   SizedBox(width: 8),
                   Text('Salvando...', style: TextStyle(color: Colors.purple))
                 ])
+                : const Text('Salvar alterações'),
           ),
         ),
       ),
