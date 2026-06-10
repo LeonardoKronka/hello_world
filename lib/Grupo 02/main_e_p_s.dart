@@ -134,15 +134,16 @@ class _TelaFormularioState extends State<TelaFormulario> {
                 } else {
                   resultado = "Não pode dirigir";
                 }
-                // Atualiza a tela
-                
 
+                // Atualiza a tela
+                setState(() {});
+                
                 // Saída no console
-                //
-                //
-                //
-                //
-                //
+                print("Nome: ${nomeController.text}");
+                print("Idade: $idade");
+                print("Sexo: $sexo");
+                print("Notificações: $notificacoes");
+                print("Habilitação: $temHabilitacao");
               },
 
               child: Text("Mostrar Dados"),
