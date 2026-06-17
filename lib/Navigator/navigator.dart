@@ -39,8 +39,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                // === APAGUE ESSA PARTE ANTES DE ENVIAR PARA OS ALUNOS ===
-                // Navegação elaborada: empurrando uma nova tela, passando um dado e aguardando (await) um retorno.
+                // Navegação elaborada
                 final resultado = await Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -89,7 +88,6 @@ class TelaSecundaria extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // === APAGUE ESSA PARTE ANTES DE ENVIAR PARA OS ALUNOS ===
                 // Removendo a tela atual da pilha e mandando um dado de volta
                 Navigator.pop(context, 'Tudo certo por aqui!');
                 // ========================================================
